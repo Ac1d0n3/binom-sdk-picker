@@ -1,12 +1,57 @@
 {
   "name": "@binom/sdk-picker",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "picker Lib for projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ac1d0n3/binom-sdk-picker"
+  },
+  "bugs": {
+    "url": "https://github.com/Ac1d0n3/binom-sdk-picker/issues"
+  },
+  "homepage": "https://binom.net",
+  "schematics": "./schematics/collection.json",
+  "ng-update": {
+    "migrations": "./schematics/migrations.json"
+  },
+  "scripts": {
+    "build:sass": "sass styles/picker.scss assets/sdk-picker/picker.css",
+    "build:schematics": "tsc -p tsconfig.schematics.json",
+    "postbuild:schematics": "copyfiles schematics/migrations.json schematics/collection.json ../../../dist/binom/sdk-picker/"
+  },
+  "exports": {
+    "./styles": {
+      "default": "./styles/picker.scss"
+    }
+  },
+  "keywords": [
+    "binom",
+    "sdk",
+    "material",
+    "ngx-translate",
+    "angular",
+    "library",
+    "picker"
+  ],
+  "author": "Thomas Lindackers (binom)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@angular/common": "^17.0.0",
-    "@angular/core": "^17.0.0"
+    "@angular/core": "^17.0.0",
+    "@ngx-translate/core": "^15.0.0",
+    "@binom/sdk-core": "^1.1.2"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "ng-add": {
+    "save": "dependencies"
+  },
+  "devDependencies": {
+    "copyfiles": "file:../../node_modules/copyfiles",
+    "typescript": "file:../../node_modules/typescript"
+  }
 }
