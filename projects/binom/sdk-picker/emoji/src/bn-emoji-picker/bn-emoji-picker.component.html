@@ -1,0 +1,72 @@
+
+<div class="bn-emoiji-picker-wrapper regular-border">
+    <div class="bn-emoiji-picker-nav">
+        @if(!isloading){
+            <button [disabled]="searchInput!==''"   mat-flat-button  (click)="selectEmoji('history')"
+            [class.bn-emoji-nav-active]="currentcategory==='history'" 
+                class="bn-emoiji-map bn-emoji-nav bn-button-fa" (click)="currentcategory='history'">
+                <i class="fas fa-history"></i>
+            </button>
+            @for(category of Object.keys(emojis); track $index){
+                <button [disabled]="searchInput!==''"  mat-flat-button class="bn-emoiji-map bn-emoji-nav" [class.bn-emoji-nav-active]="currentcategory===category" (click)="selectEmoji(category)">
+                    {{ emojis[category][0].emoji}}
+                </button>
+            }
+        }
+
+    </div>
+    <div class="bn-emoji-search"><input (input)="searchEmojis()" 
+        [(ngModel)]="searchInput" mat-input class="bn-emoji-search-input regular-border">
+        <div class="bn-icons-search-icon">
+            <button (click)="searchInput=''" mat-icon-button class="bn-button-fa"><i class="fas {{searchInput !== ''? 'fa-times':'fa-search'}}"></i></button>
+        </div>
+    </div>
+    
+    <div class="bn-emoiji-list-wrapper" #scrollWrapper cdkScrollable>
+        <bn-progress-content *ngIf="isloading" ></bn-progress-content>
+        @if(!isloading){
+            <div [hidden]="searchInput !== ''">
+                <div class="bn-emoiji-group-wrapper">
+                    <div id="history" class="bn-emoiji-group-title content-bg">{{'bnEmoji.history' | translate }}</div>
+                    <div>
+                        @for(char of history; track $index){
+                            <button mat-raised-button  (click)="currentEmoji=char" class="bn-emoiji-map regular-border">{{char.emoji}}</button>
+                        }
+                    </div>
+                </div>
+                @for(category of Object.keys(emojis);track $index){
+                    <div  class="bn-emoiji-group-wrapper">
+                        <div #emojiTitle id="{{category.toLowerCase().replace(' ', '_')}}" class="bn-emoiji-group-title  content-bg">{{category}}</div>
+                        <div>
+                            <button mat-raised-button  *ngFor="let char of emojis[category]" (click)="currentEmoji=char" class="bn-emoiji-map regular-border">{{char.emoji}}</button>
+                        </div>
+                    </div>
+                }
+               
+            </div>
+            <div [hidden]="searchInput === ''">
+                @for( char of searchResults; track $index){
+                    <button mat-raised-button (click)="currentEmoji=char" class="bn-emoiji-map regular-border">{{char.emoji}}</button>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="bn-emoiji-selected accent-color regular-border">
+        <div class="bn-emoiji-selected-wrapper">
+            <div>{{translateTag+'bnEditor.currentSelected' | translate}}:</div> 
+            <div>
+                @if(currentEmoji){
+                    <span>{{currentEmoji.emoji}}</span>
+                }
+            </div>
+        </div>
+        <div class="bn-emoji-actions">
+            <button mat-flat-button color="accent" (click)="fireAction()">{{'bnEmoji.useEmoji' | translate}}</button>
+            @if(cancelButton){
+                <button mat-flat-button color="warn" (click)="cancel()">{{'cancel' | translate}}</button>
+            }
+            
+        </div>
+    </div>
+</div>    

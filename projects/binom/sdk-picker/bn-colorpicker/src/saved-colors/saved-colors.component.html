@@ -1,0 +1,14 @@
+<button (click)="setSaveMode()" mat-button><i class="fas fa-save"></i> {{translateTag+'bnColorPicker.save' | translate }}</button>
+<span style="font-size:12px; margin-left:20px" *ngIf="saveMode">
+  {{translateTag+'bnColorPicker.selectSlot' | translate }}</span>
+<div class="saved-colors">
+  <div
+  class="saved-color-slot warn-color"
+  (click)="clearColor()"
+  style="background-color:rgba(0,0,0,0)" > <div class="nocolorline warn-bg warn-color warn-border"></div></div>
+  <div
+  *ngFor="let color of savedColors; let i = index"
+  class="saved-color-slot"
+  (click)="setSaveColor(i)"
+  [ngStyle]="{'background-color': color.color.use || 'white' }" ></div>
+</div>

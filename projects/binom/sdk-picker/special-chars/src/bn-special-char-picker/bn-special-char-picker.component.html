@@ -1,0 +1,75 @@
+
+<div class="bn-specialchar-picker-wrapper regular-border">
+
+    <div class="bn-specialchar-picker-nav">
+        @if(!isloading){
+            <button [disabled]="searchInput!==''" mat-flat-button  (click)="selectSpecialchar('history')" [class.bn-specialchar-nav-active]="currentcategory==='history'" 
+                class="bn-specialchar-map bn-specialchar-nav bn-button-fa" (click)="currentcategory='history'">
+                <i class="fas fa-history"></i>
+            </button>
+
+            @for( category of Object.keys(specialchars); track $index){
+                <button [disabled]="searchInput!==''"  mat-flat-button class="bn-specialchar-map bn-specialchar-nav" [class.bn-specialchar-nav-active]="currentcategory===category" (click)="selectSpecialchar(category)">
+                    {{ specialchars[category][0].character}}
+                </button>
+            }
+        }
+    </div>
+
+    <div class="bn-specialchar-search"><input (input)="searchspecialchars()" 
+        [(ngModel)]="searchInput" mat-input class="bn-specialchar-search-input regular-border">
+        <div class="bn-icons-search-icon">
+            <button (click)="searchInput=''" mat-icon-button class="bn-button-fa"><i class="fas {{searchInput !== ''? 'fa-times':'fa-search'}}"></i></button>
+        </div>
+    </div>
+    
+    <div class="bn-specialchar-list-wrapper" #scrollWrapper cdkScrollable>
+        @if(isloading){ <bn-progress-content ></bn-progress-content> }
+        
+        @if(!isloading){
+            <div [hidden]="searchInput !== ''">
+                <div class="bn-specialchar-group-wrapper">
+                    <div id="history" class="bn-specialchar-group-title content-bg">{{'bnSpecialchar.history' | translate }}</div>
+                    <div>
+                        @for(char of history; track $index){
+                            <button mat-raised-button  (click)="currentchar=char" class="bn-specialchar-map regular-border">{{char.character}}</button>
+                        }
+                       
+                    </div>
+                </div>
+                @for(category of Object.keys(specialchars); track $index){
+                    <div class="bn-specialchar-group-wrapper">
+                        <div #charTitle id="{{category.toLowerCase().replace(' ', '_')}}" class="bn-specialchar-group-title  content-bg">{{category}}</div>
+                        <div>
+                            @for(char of specialchars[category];track $index){
+                                <button mat-raised-button (click)="currentchar=char" class="bn-specialchar-map regular-border">{{char.character}}</button>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div [hidden]="searchInput === ''">
+                @for(char of searchResults; track $index){
+                    <button mat-raised-button  (click)="currentchar=char" class="bn-specialchar-map regular-border">{{char.character}}</button>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="bn-specialchar-selected accent-color regular-border">
+        <div class="bn-specialchar-selected-wrapper">
+            <div>{{translateTag+'bnEditor.currentSelected' | translate}}:</div> 
+            <div style="padding-left:10px">
+                @if(currentchar){ <span>{{currentchar.character}}</span> }
+            </div>  
+        </div>
+        <div class="bn-specialchar-actions">
+            <button mat-flat-button color="accent" (click)="fireAction()">{{'bnSpecialchar.usechar' | translate}}</button>
+            @if(cancelButton){
+                <button mat-flat-button color="warn" (click)="cancel()">{{'cancel' | translate}}</button>
+            }
+        </div>
+    </div>
+
+</div> 

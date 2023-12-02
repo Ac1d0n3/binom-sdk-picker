@@ -1,0 +1,18 @@
+
+<button mat-button [matMenuTriggerFor]="settings"  class="bn-button-fa color-button">
+  <i class="fas fa-cog"></i>
+</button>
+<mat-menu #settings="matMenu">
+  <div (click)="$event.stopPropagation();">
+  <button mat-menu-item [matMenuTriggerFor]="pal"><i class="fas fa-fw fa-palette"></i> {{translateTag+'bnColorPicker.palletteNav' | translate }}</button>
+  <div mat-menu-item>
+  <i class="fas fa-fw  fa-sliders-h"></i> {{translateTag+'bnColorPicker.slider' | translate }}
+  <mat-slide-toggle (change)="setCompact()" [checked]="!compactMode"></mat-slide-toggle></div>
+  </div>
+</mat-menu>
+<mat-menu #pal="matMenu">
+  <div (click)="$event.stopPropagation();$event.preventDefault();">
+  <button mat-menu-item (click)="setPallette('pallette1')">{{translateTag+'bnColorPicker.pallette1' | translate }}</button>
+  <button mat-menu-item (click)="setPallette('pallette2')">{{translateTag+'bnColorPicker.pallette2' | translate }}</button>
+  </div>
+</mat-menu>

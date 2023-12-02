@@ -1,0 +1,12 @@
+<button class="color-mode-but" mat-button [matMenuTriggerFor]="menu">{{curMode}}</button>
+
+<mat-menu #menu="matMenu">
+  <div (click)="$event.stopPropagation();">
+  <button (click)="setMode('rgba')" mat-menu-item>rgba</button>
+  <button (click)="setMode('rgb')" mat-menu-item>rgb</button>
+  <button (click)="setMode('hsla')" mat-menu-item>hsla</button>
+  <button (click)="setMode('hsl')" mat-menu-item>hsl</button>
+
+  <button (click)="setMode('hex')" mat-menu-item>hex</button>
+  </div>
+</mat-menu>

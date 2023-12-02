@@ -1,0 +1,39 @@
+
+<div class="color-picker content-bg">
+  <div class="color-input-wrapper">
+    <bn-color-settings [translateTag]="translateTag" [enableToolTips]="enableToolTips" (compact)="compact = $event" (pallette)="pallette = $event" [compactMode]="compact"></bn-color-settings>
+    <bn-color-mode-switch [translateTag]="translateTag" [enableToolTips]="enableToolTips" (mode)="setMode($event)"></bn-color-mode-switch>
+    <input class="color-output regular-border content-bg theme-textcolor" [value]="color? color.output != 'null' ? color.output : '': ''  " />
+    <div class="color-div" [ngStyle]="{'background-color': color? color.use || 'white' : 'white'}"></div>
+   
+   
+    <button mat-button class="bn-button-fa color-button">
+      <i class="fas fa-clipboard"></i>
+    </button>
+
+  </div>
+  <div class="color-wrapper" *ngIf="pallette==='pallette1'">
+    <bn-color-palette [mode]="mode" [hue]="hue" (color)="setColorChange($event)"></bn-color-palette>
+    <bn-color-slider (color)="hue=$event" style="margin-left:10px"></bn-color-slider>
+  </div>
+
+  <div class="color-wrapper2" *ngIf="pallette==='pallette2'">
+    <bn-color-grad-palette (color)="setColorChange($event)"></bn-color-grad-palette>
+  </div>
+
+  <div class="color-wrapper3" *ngIf="pallette==='pallette3'">
+
+  </div>
+
+
+  <div class="color-values" *ngIf="pallette==='pallette1' || pallette==='pallette2' " >
+    <bn-color-value-slider [translateTag]="translateTag"
+      [enableToolTips]="enableToolTips" (colorChange)="setColorChange($event)" [color]="color" [mode]="mode" [compact]="compact"></bn-color-value-slider>
+  </div>
+
+  <div class="saved-colors-wrapper">
+    <bn-saved-colors  [translateTag]="translateTag"
+      [enableToolTips]="enableToolTips" (colorChange)="setColorChange($event)" [color]="color"></bn-saved-colors>
+  </div>
+
+</div>

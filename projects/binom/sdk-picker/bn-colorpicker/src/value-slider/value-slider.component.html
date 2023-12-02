@@ -1,0 +1,42 @@
+<div *ngIf="mode !== 'hex'">
+  <div class="color-value-slider {{compact? 'compact-colors':''}}" [style]="compact ?'  margin-left: 20px;':''">
+    <div class="color-label">{{label1}}</div>
+    <mat-slider color="accent" (change)="valueChange()"  class="{{mode ==='rgb' || mode ==='rgba'? 'color-r':''}}"  min="0" [max]="max1" [step]="stepWidth1" *ngIf="!compact">
+      <input matSliderThumb [(ngModel)]="val1">
+    </mat-slider>
+    <div>
+      <input  (change)="valueChange()" [(ngModel)]="val1" class="color-input regular-border content-bg theme-textcolor" />
+    </div>
+  </div>
+  <div class="color-value-slider {{compact? 'compact-colors':''}}">
+    <div class="color-label">{{label2}}</div>
+    <mat-slider color="accent" (change)="valueChange()"  class="{{mode ==='rgb' || mode ==='rgba'? 'color-g':''}}" min="0" [max]="max2" [step]="stepWidth2"    *ngIf="!compact">
+      <input matSliderThumb [(ngModel)]="val2">
+    </mat-slider>
+
+    <div>
+      <input  (change)="valueChange()" [(ngModel)]="val2" class="color-input regular-border content-bg theme-textcolor" />
+    </div>
+  </div>
+  <div class="color-value-slider {{compact? 'compact-colors':''}}">
+    <div class="color-label" >{{label3}}</div>
+    <mat-slider color="accent" class="{{mode ==='rgb' || mode ==='rgba'? 'color-b':''}}" (change)="valueChange()"  min="0" [max]="max2" [step]="stepWidth2" *ngIf="!compact">
+      <input matSliderThumb [(ngModel)]="val3"  >
+    </mat-slider>
+
+    <div>
+      <input [(ngModel)]="val3" (change)="valueChange()" class="color-input regular-border content-bg theme-textcolor" />
+    </div>
+  </div>
+
+  <div *ngIf="hasAlpha" class="color-value-slider {{compact? 'compact-colors':''}}">
+    <div class="color-label">A</div>
+    <mat-slider color="accent" (change)="alphaChange()" min="0" max="1" step="0.01" value="1" *ngIf="!compact">
+      <input matSliderThumb [(ngModel)]="valAlpha" >
+    </mat-slider>
+    
+    <div>
+      <input [(ngModel)]="valAlpha" (change)="alphaChange()" class="color-input regular-border content-bg theme-textcolor" />
+    </div>
+  </div>
+</div>
