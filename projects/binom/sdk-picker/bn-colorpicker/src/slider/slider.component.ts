@@ -70,6 +70,12 @@ export class SliderComponent implements AfterViewInit, OnDestroy {
         this.ctx.rect(0, this.selectedHeight - 5, width, 10)
         this.ctx.stroke()
         this.ctx.closePath()
+        this.ctx.beginPath()
+        this.ctx.strokeStyle = 'black'
+        this.ctx.lineWidth = 1
+        this.ctx.rect(0, this.selectedHeight - 5, width, 10)
+        this.ctx.stroke()
+        this.ctx.closePath()
       }
     }
 

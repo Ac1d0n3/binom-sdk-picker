@@ -1,0 +1,28 @@
+{
+  "bnColorPicker":{
+      "save": "Farbe speichern",
+      "selectSlot": "wählen sie den Speicherplatz",
+      "palletteNav": "Pallette",
+      "pallette1": "Radial",
+      "pallette2": "Gradient",
+      "pallette3": "Fixierte Pallette",
+      "slider": "Schiebregler",
+      "tooltips": {
+        "copyToClipBoard": "copy to clipboard",
+        "changeInOutput": "change Input / Output",
+        "saveColor": "press first and then click on a Color Slot to save the current Color"
+      }
+    },
+    "bnEmoji":{
+      "useEmoji": "nutzen",
+      "history": "zuletzt genutzt"
+    },
+    "bnSpecialchar":{
+      "usechar": "nutzen",
+      "history": "zuletzt genutzt"
+    },
+    "bnIcons":{
+      "useicon": "nutzen",
+      "history": "zuletzt genutzt"
+    }
+}

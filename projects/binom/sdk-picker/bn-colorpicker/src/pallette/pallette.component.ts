@@ -85,6 +85,18 @@ export class PalletteComponent implements AfterViewInit, OnChanges {
         )
         this.ctx.lineWidth = 2
         this.ctx.stroke()
+        this.ctx.strokeStyle = 'black'
+        this.ctx.fillStyle = 'black'
+        this.ctx.beginPath()
+        this.ctx.arc(
+          this.selectedPosition.x,
+          this.selectedPosition.y,
+          7,
+          0,
+          2 * Math.PI
+        )
+        this.ctx.lineWidth = 1
+        this.ctx.stroke()
       }
     }
   }

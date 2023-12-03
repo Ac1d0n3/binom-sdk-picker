@@ -13,11 +13,12 @@ import { CdkScrollableModule, ScrollingModule } from '@angular/cdk/scrolling';
 import { BnIconComponent } from '@binom/sdk-core/icons'
 
 import { BnProgressContentComponent } from '@binom/sdk-core/progress-content';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'bn-icons-picker',
   templateUrl: './bn-icons-picker.component.html',
   standalone: true,
-  imports: [BnIconComponent,BnProgressContentComponent,MatButtonModule,MatInputModule,TranslateModule,FormsModule, ReactiveFormsModule,CdkScrollableModule, ScrollingModule ]
+  imports: [CommonModule,BnIconComponent,BnProgressContentComponent,MatButtonModule,MatInputModule,TranslateModule,FormsModule, ReactiveFormsModule,CdkScrollableModule, ScrollingModule ]
 })
 export class BnIconsPickerComponent implements OnInit, OnDestroy{
   constructor( private dataSvc:BnIconsDataService ) { }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter ,OnDestroy} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter ,OnDestroy, ViewEncapsulation} from '@angular/core';
 import { BnColorsUtilsService, BnColor } from '@binom/sdk-core/utils';
 
 
@@ -8,7 +8,9 @@ import {debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'bn-colorpicker',
-  templateUrl: './bn-colorpicker.component.html'
+  templateUrl: './bn-colorpicker.component.html',
+  styleUrl:  './bn-colorpicker.component.css',
+  encapsulation:ViewEncapsulation.None
 })
 export class BnColorpickerComponent implements OnInit,OnDestroy {
 

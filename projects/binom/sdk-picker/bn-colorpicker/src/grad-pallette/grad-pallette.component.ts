@@ -20,8 +20,8 @@ import { BnColorsUtilsService } from '@binom/sdk-core/utils';
 
 })
 export class GradPalletteComponent  implements AfterViewInit, OnChanges {
-  @Input()
-  hue: any = '';
+  @Input() hue: any = '';
+  @Input() hex: any = '';
 
   constructor(private cu:BnColorsUtilsService ){}
 
@@ -83,6 +83,18 @@ export class GradPalletteComponent  implements AfterViewInit, OnChanges {
           2 * Math.PI
         )
         this.ctx.lineWidth = 2
+        this.ctx.stroke()
+        this.ctx.strokeStyle = 'black'
+        this.ctx.fillStyle = 'black'
+        this.ctx.beginPath()
+        this.ctx.arc(
+          this.selectedPosition.x,
+          this.selectedPosition.y,
+          7,
+          0,
+          2 * Math.PI
+        )
+        this.ctx.lineWidth = 1
         this.ctx.stroke()
       }
 

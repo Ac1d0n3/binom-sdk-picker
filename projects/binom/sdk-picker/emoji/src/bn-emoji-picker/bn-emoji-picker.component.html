@@ -1,5 +1,5 @@
 
-<div class="bn-emoiji-picker-wrapper regular-border">
+<div class="bn-emoiji-picker-wrapper bn-picker-wrapper regular-border">
     <div class="bn-emoiji-picker-nav">
         @if(!isloading){
             <button [disabled]="searchInput!==''"   mat-flat-button  (click)="selectEmoji('history')"
@@ -15,11 +15,13 @@
         }
 
     </div>
-    <div class="bn-emoji-search"><input (input)="searchEmojis()" 
-        [(ngModel)]="searchInput" mat-input class="bn-emoji-search-input regular-border">
-        <div class="bn-icons-search-icon">
-            <button (click)="searchInput=''" mat-icon-button class="bn-button-fa"><i class="fas {{searchInput !== ''? 'fa-times':'fa-search'}}"></i></button>
-        </div>
+    <div class="bn-emoji-search">
+        <mat-form-field color="accent"  style="width:387px;margin-left: 3px;">
+            <input matInput (input)="searchEmojis()" [(ngModel)]="searchInput" >
+            <button matSuffix (click)="searchInput=''" mat-icon-button class="bn-button-fa"><i class="fas {{searchInput !== ''? 'fa-times':'fa-search'}}"></i></button>
+        </mat-form-field>
+        
+       
     </div>
     
     <div class="bn-emoiji-list-wrapper" #scrollWrapper cdkScrollable>
@@ -54,7 +56,7 @@
 
     <div class="bn-emoiji-selected accent-color regular-border">
         <div class="bn-emoiji-selected-wrapper">
-            <div>{{translateTag+'bnEditor.currentSelected' | translate}}:</div> 
+            <div>{{translateTag+'bnEmoji.currentSelected' | translate}}:</div> 
             <div>
                 @if(currentEmoji){
                     <span>{{currentEmoji.emoji}}</span>
@@ -70,3 +72,4 @@
         </div>
     </div>
 </div>    
+

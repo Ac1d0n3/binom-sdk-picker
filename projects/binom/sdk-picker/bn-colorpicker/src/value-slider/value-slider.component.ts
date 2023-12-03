@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { BnColorsUtilsService,BnColor } from '@binom/sdk-core/utils'; 
 
 @Component({
   selector: 'bn-color-value-slider',
-  templateUrl: './value-slider.component.html'
+  templateUrl: './value-slider.component.html',
+  encapsulation:ViewEncapsulation.None
 })
 export class ValueSliderComponent implements OnInit {
 

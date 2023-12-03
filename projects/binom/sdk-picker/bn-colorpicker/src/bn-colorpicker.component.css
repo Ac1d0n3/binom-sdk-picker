@@ -1,0 +1,225 @@
+.color-wrapper {
+    display: block;
+    height: 255px;
+    margin-left: 10px
+  }
+  
+  .color-input-wrapper {
+    display: block;
+    position: relative;
+    margin-top: -5px;
+  }
+  
+  .mat-mdc-menu-panel.color-menue  {
+    max-width: none !important;
+  
+  }
+  
+  .color-button{
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+  }
+  
+  .nocolorline
+  {
+      position: relative;
+      z-index: 1;
+      left: -5px;
+      top: 8px;
+      width: 24px;
+      height: 1px;
+      transform: rotate(45deg);
+      -ms-transform: rotate(45deg); /* IE 9 */
+      -webkit-transform: rotate(45deg); /* Safari and Chrome */
+  }
+  
+  .saved-color-slot{
+    position: relative;
+    height:20px;
+    width:20px;
+    float:left;
+    border:1px solid;
+    padding:0px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    margin:2.5px;
+    border-radius: 4px;
+  }
+
+.smal-matform-field .mat-form-field-wrapper {
+    margin: 0px!important;
+    padding: 0px !important;
+    min-height: 30px!important;
+    height: 30px!important;
+}
+.smal-matform-field .mat-form-field-appearance-outline {
+   
+    min-height: 30px!important;
+    height: 30px!important;
+}
+
+.smal-matform-field .mat-mdc-form-field-infix {
+    width: 150px!important;
+    padding: 2px!important;
+    min-height: 30px!important;
+    height: 30px!important;
+}
+
+.smal-matform-field .mdc-text-field {
+    padding: 2px!important;
+}
+
+.rgb-matform-field .mat-mdc-form-field-infix {
+    width: 40px!important;
+    padding: 2px!important;
+    min-height: 30px!important;
+    height: 30px!important;
+}
+
+.rgb-matform-field .mdc-notched-outline{
+    top: 10px!important;
+}
+
+
+  
+  .saved-color-slot:not(i) {
+    font-weight: unset;
+    font: unset;
+  }
+  
+  .saved-color-slot i {
+   font-size: 20px;
+   display: block !important;
+    position: absolute !important;
+    top: 1px;
+    left: 1px
+  }
+  
+  .color-wrapper2{
+    margin-left: 12px
+  }
+  
+  .unset-slot {
+    border-color:red;
+    color: red;
+    text-align: center;
+  }
+  
+  .color-values {
+    margin-left: 5px;
+  }
+  
+  .color-mode-but {
+    min-width: 45px !important;
+    padding: 0 5px !important
+  }
+  
+  .color-div {
+    position: absolute;
+    right: 10px;
+    top: -2px;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgb(220, 220, 220);
+  }
+  
+  .color-palette:hover,.color-slider:hover {
+    cursor: pointer;
+  }
+  
+  .color-picker{
+    display:grid;
+    grid-template-rows: 40px auto  auto 85px;
+    width: 325px;
+    margin-bottom: 10px;
+    padding-top:5px;
+  }
+  
+  .color-value-slider{
+    display:grid;
+    grid-template-columns: 20px 255px 45px;
+    grid-auto-columns: 40px;
+  
+    height: 40px;
+  }
+  
+  .compact-colors{
+    float:left
+  }
+  
+  .compact-colors{
+    display:grid;
+    grid-template-columns: 20px 45px;
+    grid-auto-columns: 40px;
+  
+    height: 40px;
+  }
+  
+  
+  .color-r .mdc-slider__track,.color-r .mdc-slider__thumb-knob{
+      background: red !important;
+  }
+  
+  
+  .color-g .mdc-slider__track,.color-g .mdc-slider__thumb-knob {
+      background: green !important;
+  }
+  
+  
+  .color-b .mdc-slider__track,.color-b .mdc-slider__thumb-knob {
+      background: blue !important;
+  }
+  
+  .color-r .mdc-slider__thumb-knob{
+     border-color: red !important;
+  }
+  
+  
+  .color-g .mdc-slider__thumb-knob {
+    border-color: green !important;
+  }
+  
+  .color-b .mdc-slider__thumb-knob {
+    border-color: blue !important;
+  }
+  
+  .color-label{
+    padding-top: 16px;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  
+  
+  .color-input{
+    padding: 5px;
+    width: 35px;
+    margin-top: 10px;
+    outline: none;
+    border: 1px solid
+  }
+  
+  .saved-colors-wrapper{
+    margin: 10px;
+  
+  }
+  
+  .color-output{
+    padding: 5px;
+    width: 145px;
+  
+    outline: none;
+    border: 1px solid
+  }
+  
+  /* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version. */
+  .color-input .mat-form-field-wrapper{
+     margin-top: 15px !important;
+  
+  }
+  

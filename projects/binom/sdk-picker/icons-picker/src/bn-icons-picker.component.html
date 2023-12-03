@@ -1,30 +1,36 @@
-<div class="bn-icons-picker-wrapper regular-border">
+<div class="bn-icons-picker-wrapper bn-picker-wrapper regular-border">
 
     <div class="bn-icons-picker-nav">
         @if(!isloading){
-            <button *ngIf="!onlyFa" [disabled]="searchInput!==''" mat-flat-button  (click)="currentFont='history'" [class.bn-icons-nav-active]="currentFont === 'history'" class="bn-icons-map bn-icons-nav bn-button-fa" >
-                <i class="fas fa-history"></i>
-            </button>
+            @if(!onlyFa){
+                <button [disabled]="searchInput!==''" mat-flat-button  (click)="currentFont='history'" [class.bn-icons-nav-active]="currentFont === 'history'" class="bn-icons-map bn-icons-nav bn-button-fa" >
+                    <i class="fas fa-history"></i>
+                </button>
+            }
+           
 
             <button [disabled]="searchInput!==''" mat-flat-button class=" bn-icons-nav" [class.bn-icons-nav-active]="currentFont === 'fa'"(click)="currentFont = 'fa'">
                 Font Awesome
             </button>
-            <button *ngIf="!onlyFa" [disabled]="searchInput!==''" mat-flat-button class=" bn-icons-nav"  (click)="currentFont = 'mat'" [class.bn-icons-nav-active]="currentFont === 'mat'">
-                Material Icons
-            </button>
+            @if(!onlyFa){
+                <button [disabled]="searchInput!==''" mat-flat-button class=" bn-icons-nav"  (click)="currentFont = 'mat'" [class.bn-icons-nav-active]="currentFont === 'mat'">
+                    Material Icons
+                </button>
+            }
+         
         }
         
     </div>
-    <div class="bn-icons-search"><input (input)="searchBnIcons()" 
-        [(ngModel)]="searchInput" mat-input class="bn-icons-search-input regular-border">
-        <div class="bn-icons-search-icon">
-            <button (click)="searchInput=''" mat-icon-button class="bn-button-fa"><i class="fas {{searchInput !== ''? 'fa-times':'fa-search'}}"></i></button>
-        </div>
+    <div class="bn-icons-search">
+        <mat-form-field color="accent"  style="width:387px;margin-left: 3px;">
+            <input matInput  (input)="searchBnIcons()"  [(ngModel)]="searchInput" >
+            <button matSuffix (click)="searchInput=''" mat-icon-button class="bn-button-fa"><i class="fas {{searchInput !== ''? 'fa-times':'fa-search'}}"></i></button>
+        </mat-form-field>
     </div>
     
     <div class="bn-icons-list-wrapper">
-        <bn-progress-content *ngIf="isloading" ></bn-progress-content>
-        
+        @if(isloading){<bn-progress-content></bn-progress-content>}
+
         @if((searchInput === ''  || !searchInput) && !isloading){
             <div [hidden]="currentFont !== 'fa'">
                 <button mat-raised-button class="bn-button-fa"  *ngFor="let char of icons" (click)="selectBnIcon(char)"
@@ -65,7 +71,7 @@
 
     <div class="bn-icons-selected accent-color regular-border">
         <div class="bn-icons-selected-wrapper">
-            <div>{{translateTag+'bnEditor.currentSelected' | translate}}:</div> 
+            <div>{{translateTag+'bnIcons.currentSelected' | translate}}:</div> 
             <div style="padding-left:10px" [innerHTML]="currentBnIcon"></div>
         </div>
         <div class="bn-icons-actions">

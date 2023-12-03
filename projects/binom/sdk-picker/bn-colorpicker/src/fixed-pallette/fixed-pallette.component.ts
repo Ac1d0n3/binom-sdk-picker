@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-fixed-pallette',
+  selector: 'bn-fixed-pallette',
   templateUrl: './fixed-pallette.component.html'
 })
 export class FixedPalletteComponent implements OnInit {

@@ -1,5 +1,5 @@
 
-<div class="bn-specialchar-picker-wrapper regular-border">
+<div class="bn-specialchar-picker-wrapper bn-picker-wrapper regular-border">
 
     <div class="bn-specialchar-picker-nav">
         @if(!isloading){
@@ -16,11 +16,12 @@
         }
     </div>
 
-    <div class="bn-specialchar-search"><input (input)="searchspecialchars()" 
-        [(ngModel)]="searchInput" mat-input class="bn-specialchar-search-input regular-border">
-        <div class="bn-icons-search-icon">
-            <button (click)="searchInput=''" mat-icon-button class="bn-button-fa"><i class="fas {{searchInput !== ''? 'fa-times':'fa-search'}}"></i></button>
-        </div>
+    <div class="bn-specialchar-search">
+        <mat-form-field color="accent"  style="width:387px;margin-left: 3px;">
+            <input matInput  (input)="searchspecialchars()"  [(ngModel)]="searchInput" >
+            <button matSuffix (click)="searchInput=''" mat-icon-button class="bn-button-fa"><i class="fas {{searchInput !== ''? 'fa-times':'fa-search'}}"></i></button>
+        </mat-form-field>
+       
     </div>
     
     <div class="bn-specialchar-list-wrapper" #scrollWrapper cdkScrollable>
@@ -59,7 +60,7 @@
 
     <div class="bn-specialchar-selected accent-color regular-border">
         <div class="bn-specialchar-selected-wrapper">
-            <div>{{translateTag+'bnEditor.currentSelected' | translate}}:</div> 
+            <div>{{translateTag+'bnSpecialchar.currentSelected' | translate}}:</div> 
             <div style="padding-left:10px">
                 @if(currentchar){ <span>{{currentchar.character}}</span> }
             </div>  

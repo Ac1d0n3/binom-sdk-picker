@@ -11,12 +11,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CdkScrollableModule, ScrollingModule } from '@angular/cdk/scrolling';
 import { BnProgressContentComponent } from '@binom/sdk-core/progress-content';
+import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field'
 
 @Component({
   selector: 'bn-emoji-picker',
   templateUrl: './bn-emoji-picker.component.html',
   standalone: true,
-  imports:[ MatButtonModule,MatInputModule,TranslateModule,FormsModule, ReactiveFormsModule,CdkScrollableModule, ScrollingModule,BnProgressContentComponent ]
+  imports:[CommonModule, MatButtonModule,MatInputModule,TranslateModule,FormsModule, ReactiveFormsModule,CdkScrollableModule, ScrollingModule,BnProgressContentComponent, MatFormFieldModule ]
 })
 export class BnEmojiPickerComponent implements OnInit, AfterViewInit,OnDestroy{
   constructor( 

@@ -25,6 +25,7 @@ export class SavedColorsComponent implements OnInit {
     {color: {use: 'white'}},
     {color: {use: 'white'}},
     {color: {use: 'white'}},
+
     {color: {use: 'white'}},
     {color: {use: 'white'}},
     {color: {use: 'white'}},
@@ -34,10 +35,9 @@ export class SavedColorsComponent implements OnInit {
     {color: {use: 'white'}},
     {color: {use: 'white'}},
     {color: {use: 'white'}},
-    {color: {use: 'white'}},
-    {color: {use: 'white'}},
-    {color: {use: 'white'}},
-    {color: {use: 'white'}},
+
+
+
   ]
 
   constructor(private cu:BnColorsUtilsService ){}

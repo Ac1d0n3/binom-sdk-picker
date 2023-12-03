@@ -13,8 +13,6 @@ export class ModeSwitchComponent implements OnInit {
 
   @Output() mode = new EventEmitter();
 
-
-
   constructor() { }
 
   ngOnInit(): void {
@@ -24,6 +22,4 @@ export class ModeSwitchComponent implements OnInit {
     this.curMode = mode
     this.mode.emit(this.curMode)
   }
-
-
 }

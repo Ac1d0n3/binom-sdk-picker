@@ -18,9 +18,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { SettingsComponent } from './settings/settings.component';
 import { GradPalletteComponent } from './grad-pallette/grad-pallette.component';
 import { FixedPalletteComponent } from './fixed-pallette/fixed-pallette.component';
-
+import { BnColorpickerMenuComponent } from './bn-color-picker-menu/bn-color-picker-menu.component';
+import { BnIconComponent } from '@binom/sdk-core/icons';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
+
+    BnColorpickerMenuComponent,
     BnColorpickerComponent,
     PalletteComponent,
     SliderComponent,
@@ -33,6 +37,7 @@ import { FixedPalletteComponent } from './fixed-pallette/fixed-pallette.componen
   ],
   imports: [
     CommonModule,
+    BnIconComponent,
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
@@ -42,10 +47,12 @@ import { FixedPalletteComponent } from './fixed-pallette/fixed-pallette.componen
     MatButtonModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule
   ],
   exports: [
-    BnColorpickerComponent
+    BnColorpickerComponent,
+   BnColorpickerMenuComponent
   ]
 })
 export class BnColorpickerModule { }

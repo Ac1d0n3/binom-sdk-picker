@@ -1,0 +1,22 @@
+
+<button *ngIf="editorButton" 
+  [style.borderColor]="color? color!.use+'!important':''" 
+  [matTooltip]="translateTag + bnTooltip | translate"
+  [matTooltipDisabled]="!enableToolTips"
+  [disabled]="disabled" 
+  mat-button class="{{setClass}}" (menuOpened)="menuOpenedEvent($event)"
+  [matMenuTriggerFor]="colorPicker"> <i class="fas {{menuIcon}}"></i> </button>
+
+  <button  *ngIf="!editorButton" mat-icon-button [matMenuTriggerFor]="colorPicker" (menuOpened)="menuOpenedEvent($event)">
+    <bn-icon type="fas" [icon]="menuIcon"></bn-icon>
+  </button>
+
+<mat-menu #colorPicker="matMenu" class="color-menue" (closed)="closeEvent()" >
+  <div (click)="$event.stopPropagation();$event.preventDefault();">
+  <bn-colorpicker
+  [enableToolTips]="enableToolTips"
+  [translateTag]="translateTag"
+  [color]="color"
+  (colorChange)="setColorChange($event)"></bn-colorpicker>
+  </div>
+</mat-menu>
