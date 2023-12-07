@@ -13,4 +13,7 @@ npm i @binom/sdk-picker
 
 ## includes
 
-
+- color-picker 
+- emoji-picker
+- specialchar-picker
+- icon-picker (font awesome / material)
